@@ -49,3 +49,6 @@ gem 'spree_fancy', :git => 'git://github.com/spree/spree_fancy.git', :branch => 
 group :development do
   gem 'pry', '0.9.12.6'
 end
+group :production do
+  gem 'rails_12factor'
+end
