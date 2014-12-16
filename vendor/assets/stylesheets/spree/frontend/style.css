@@ -1,0 +1,41 @@
+/* demo css*/
+
+.demo-set{
+  float:right;
+  margin-top:39px;
+  color:#CC99FF;
+}
+#subheader {
+  background-color: #707070 !important;
+}
+footer#footer {
+  background-color: black !important;
+}    
+
+#header{
+  background-color: black !important;
+}
+
+
+
+
+.new_spree_user{
+    border: 8px outset #99c165 !important;
+    border-radius: 10px !important;
+    box-sizing: border-box !important;
+    margin: 10px auto 0 !important;
+    padding: 25px 50px 30px !important;
+    position: relative !important;
+    z-index: 0 !important;
+}
+
+
+.new_spree_user a.button, input[type="submit"] {
+    background-color: black !important;
+    border-radius: 7px !important;
+    cursor: pointer !important;
+    height: 40px !important;
+    margin-left: 12px !important;
+    padding: 5px !important;
+    width: auto !important;
+}
