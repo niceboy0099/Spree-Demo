@@ -3,7 +3,6 @@ module Spree
     module ProductFilters
      
       Spree::Product.add_search_scope :price_range_any do |*opts|
-      binding.pry
         conds = opts.map {|o| Spree::Core::ProductFilters.price_filter(@@taxon_gol)[:conds][o]}.reject { |c| c.nil? }
         binding.pry
         scope = conds.shift
