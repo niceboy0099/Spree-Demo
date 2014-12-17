@@ -1,9 +1,8 @@
 module Spree
   module Core
     module ProductFilters
-     
       Spree::Product.add_search_scope :price_range_any do |*opts|
-        conds = opts.map {|o| Spree::Core::ProductFilters.price_filter(@@taxon_gol)[:conds][o]}.reject { |c| c.nil? }
+        conds = opts.map {|o| Spree::Core::ProductFilters.price_filter(@@taxon)[:conds][o]}.reject { |c| c.nil? }
         scope = conds.shift
         conds.each do |new_scope|
           scope = scope.or(new_scope)
@@ -16,8 +15,9 @@ module Spree
       end
 
       def ProductFilters.price_filter(taxon)
+     
         v = Spree::Price.arel_table
-        @@taxon_gol = taxon
+        @@taxon = taxon
 =begin        
         min = Spree::Price.minimum(:amount).to_f
         max = Spree::Price.maximum(:amount).to_f
@@ -44,8 +44,9 @@ module Spree
           else   
             diff = (max-min)/4
             for i in 0..3 do
-              short = min + (i * diff).round
-              large = min + ((i+1) * diff).round
+            
+              short = min + (i * diff)
+              large = min + ((i+1) * diff)
               arr << "#{format_price(short)} - #{format_price(large)}"
               arr << v[:amount].in(short..large)
               conds << arr
